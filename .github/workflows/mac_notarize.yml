@@ -26,6 +26,7 @@ jobs:
         run: |
           . check_tags.sh
           echo "::set-env name=SHOULD_BUILD::$SHOULD_BUILD"
+          echo "SHOULD_BUILD=yes" >> $GITHUB_ENV
           
       - name: Build
         env:
