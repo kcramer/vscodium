@@ -1,6 +1,6 @@
 name: macos_notarize_build
 
-on: repository_dispatch
+on: workflow_dispatch
 
 jobs:
   build:
