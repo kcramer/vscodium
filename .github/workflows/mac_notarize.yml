@@ -58,6 +58,13 @@ jobs:
           zip -r -X -y ../VSCodium-darwin-${LATEST_MS_TAG}.zip ./*.app
         if: env.SHOULD_BUILD == 'yes'
 
+      - name: Notarize
+        env:
+          APPSTORE_ID: ${{ secrets.APPSTORE_ID }}
+          APPSTORE_PASSWORD: ${{ secrets.APPSTORE_PASSWORD }}    
+        run: |
+          altool --notarize-app -f ../VSCodium-darwin-${LATEST_MS_TAG}.zip --primary-bundle-id "com.visualstudio.code.oss" -u $APPSTORE_ID -p $APPSTORE_PASSWORD
+         
       - name: DMG the release
         run: |
           pushd VSCode-darwin
