@@ -63,7 +63,7 @@ jobs:
           APPSTORE_ID: ${{ secrets.APPSTORE_ID }}
           APPSTORE_PASSWORD: ${{ secrets.APPSTORE_PASSWORD }}    
         run: |
-          altool --notarize-app -f ../VSCodium-darwin-${LATEST_MS_TAG}.zip --primary-bundle-id "com.visualstudio.code.oss" -u $APPSTORE_ID -p $APPSTORE_PASSWORD
+          xcrun altool --notarize-app -f ../VSCodium-darwin-${LATEST_MS_TAG}.zip --primary-bundle-id "com.visualstudio.code.oss" -u $APPSTORE_ID -p $APPSTORE_PASSWORD
          
       - name: DMG the release
         run: |
