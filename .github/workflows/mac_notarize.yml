@@ -1,4 +1,4 @@
-name: macos_motarize_build
+name: macos_notarize_build
 
 on: repository_dispatch
 
